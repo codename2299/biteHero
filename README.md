@@ -1,10 +1,24 @@
 # biteHero
 Developed by Team Young
 
-# How to setup
-1) Install Node.js https://nodejs.org/en/  
-2) Install Genymotion https://www.genymotion.com/  
-  a) Download some device image for genymotion  
-3) Open command prompt  
-4) Enter these commands:  
-  a) npm install -g cordova ionic  
+TODO: Setup needed applications in order to run ionic app into emulator
+
+## Installation
+# Download and install the following
+1. Node.js https://nodejs.org/en/  
+2. Genymotion https://www.genymotion.com/  
+3. Genymotion device images at least 1
+4. Git extenstions http://sourceforge.net/projects/gitextensions/
+
+## Configuration
+
+1. Open Command Prompt
+2. Install `Cordova` using `ionic CLI`  
+`$ npm install -g cordova ionic`
+
+## Setup git repository
+
+1. Open Git Extensions
+2. 
+
+
