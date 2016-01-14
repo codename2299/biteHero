@@ -32,42 +32,60 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     controller: 'AppCtrl'
   })
 
-  .state('app.search', {
-    url: '/search',
+
+  .state('app.dashboard', {
+    url: '/dashboard',
     views: {
       'menuContent': {
-        templateUrl: 'templates/sample.html'
+        templateUrl: 'templates/dashboard.html'
       }
     }
   })
 
-  .state('app.browse', {
-      url: '/browse',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html'
-        }
+  .state('app.account', {
+    url: '/account',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/account.html'
       }
-    })
-    .state('app.playlists', {
-      url: '/playlists',
+    }
+  })
+
+  .state('app.activity', {
+      url: '/activity',
       views: {
         'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
+          templateUrl: 'templates/activity.html'
         }
       }
     })
 
-  .state('app.single', {
-    url: '/playlists/:playlistId',
+  .state('app.achievements', {
+    url: '/achievements',
     views: {
       'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
+        templateUrl: 'templates/achievements.html',
+      }
+    }
+  })
+
+  .state('app.mydentists', {
+    url: '/mydentists',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/mydentists.html',
+      }
+    }
+  })
+
+  .state('app.signout', {
+    url: '/signout',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/signout.html',
       }
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/dashboard');
 });
