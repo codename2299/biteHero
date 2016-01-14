@@ -118,6 +118,10 @@
   @include flex(0, 0, 33.3333%);
   max-width: 33.3333%;
 }
+.col-37, .col-38 {
+  @include flex(0, 0, 37%);
+  max-width: 37%;
+}
 .col-40 {
   @include flex(0, 0, 40%);
   max-width: 40%;

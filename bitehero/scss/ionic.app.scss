@@ -15,9 +15,85 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
+$light: #000;
+
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
-@import "www/lib/ionic/scss/ionic";
+@import "../www/lib/ionic/scss/ionic";
+
+
+/*  CUSTOM STYLES */
+/* Header Classes */
+.bar_overview{
+	min-height: 44px !important;
+	height:auto !important;
+	background:none !important;
+	padding: 1em;
+}
+.bar_buttons{
+	color:#000 !important;
+}
+
+.header-item{
+	min-height: 44px !important;
+	height:auto !important;
+
+}
+.bar_avatar{
+	border-radius: 50%;
+	width: 3em;
+	height: 3em; 
+	background:orange;
+	margin:2em auto 0 auto;
+}
+.bar-header{
+	background: transparent !important;
+	height:auto !important;
+}
+.bar .title{
+	margin:0 auto !important;
+	font-size:auto;
+	min-width:0 !important;
+}
+.progress_bar{
+	/* Reset the default appearance */
+  -webkit-appearance: none;
+   appearance: none;
+   margin:2em 0;
+}
+.progress_bar[value]::-webkit-progress-bar {
+  	background-color: #DDD;
+}
+.progress_bar[value]::-webkit-progress-value {
+    border-radius: 2px; 
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+.progress_bar_hp[value]::-webkit-progress-value {
+	background-image:
+	-webkit-linear-gradient(left, #F87B4F, #F87B4F);
+}
+.progress_bar_xp[value]::-webkit-progress-value {
+	background-image:
+	-webkit-linear-gradient(left, #FCC25D, #FCC25D);
+}
+
+/* Menu */
+.title-left{
+	color:#FFF !important;
+}
+.item, .item-content{
+	border:0 !important;
+	background:#4c4c4c !important;
+	color:#FFF !important;
+}
+.sidemenu{
+	background:#4c4c4c !important;
+}
+
+/* Background Images */
+.box_dashboard{
+	
+}
 
