@@ -2,15 +2,7 @@
   "name": "bitehero",
   "app_id": "",
   "gulpStartupTasks": [
-    "clean",
-    "sass",
-    "templatecache",
-    "img",
-    "fonts",
-    "lib",
-    "css",
-    "useref",
-    "ng_annotate",
+    "build:ionic",
     "watch"
   ],
   "watchPatterns": [

@@ -57,13 +57,7 @@ gulp.task('lib', function (done) {
         .on('end', done);
 });
 
-gulp.task('css', function (done) {
-    gulp.src('./app/css/**/*.css')
-        .pipe(gulp.dest('./www/css'))
-        .on('end', done);
-});
-
-gulp.task('useref', ['sass', 'css', 'templatecache'], function (done) {
+gulp.task('useref', function (done) {
     gulp.src('./app/*.html')
         .pipe(useref())
         .pipe(gulp.dest('./www'))
@@ -80,11 +74,18 @@ gulp.task('ng_annotate', function (done) {
 gulp.task('build', function (done) {
     runSequence('clean',
         ['sass', 'templatecache', 'img', 'fonts', 'lib'],
-        'css',
         'useref',
         'ng_annotate',
         done);
 });
+
+gulp.task('build:ionic', function (done) {
+    runSequence(['sass', 'templatecache', 'img', 'fonts', 'lib'],
+        'useref',
+        'ng_annotate',
+        done);
+});
+
 
 gulp.task('build:serve', function (done) {
     runSequence('build', 'ionic:serve', done);
