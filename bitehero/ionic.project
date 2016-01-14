@@ -2,10 +2,15 @@
   "name": "bitehero",
   "app_id": "",
   "gulpStartupTasks": [
+    "clean",
     "sass",
     "templatecache",
-    "ng_annotate",
+    "img",
+    "fonts",
+    "lib",
+    "css",
     "useref",
+    "ng_annotate",
     "watch"
   ],
   "watchPatterns": [

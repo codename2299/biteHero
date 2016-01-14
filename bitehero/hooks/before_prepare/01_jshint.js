@@ -10,7 +10,7 @@ var foldersToProcess = [
 ];
 
 foldersToProcess.forEach(function (folder) {
-    processFiles("www/" + folder);
+    processFiles("xxx/" + folder);
 });
 
 function processFiles(dir, callback) {

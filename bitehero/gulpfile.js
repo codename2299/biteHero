@@ -3,55 +3,96 @@ var gutil = require('gulp-util');
 var bower = require('bower');
 var concat = require('gulp-concat');
 var sass = require('gulp-sass');
-var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
 var templateCache = require('gulp-angular-templatecache');
 var ngAnnotate = require('gulp-ng-annotate');
 var useref = require('gulp-useref');
+var del = require('del');
+var runSequence = require('run-sequence');
+var shell = require('gulp-shell');
 
 var paths = {
     sass: ['./scss/**/*.scss'],
-    templatecache: ['./www/templates/**/*.html'],
-    ng_annotate: ['./www/js/*.js'],
-    useref: ['./www/*.html']
+    templatecache: ['./app/templates/**/*.html'],
+    ng_annotate: ['./app/js/*.js'],
+    useref: ['./app/*.html'],
+    del: ['./www/**/*']
 };
 
-gulp.task('default', ['sass', 'templatecache', 'ng_annotate', 'useref']);
+gulp.task('clean', function () {
+    return del(paths.del);
+});
 
-gulp.task('useref', function (done) {
-    gulp.src('./www/*.html')
+gulp.task('sass', function (done) {
+    gulp.src('./scss/**/*.scss')
+        .pipe(sass())
+        .on('error', sass.logError)
+        .pipe(gulp.dest('./app/css'))
+        .on('end', done);
+});
+
+gulp.task('templatecache', function (done) {
+    gulp.src('./app/templates/**/*.html')
+        .pipe(templateCache({standalone: true}))
+        .pipe(gulp.dest('./app/js'))
+        .on('end', done);
+});
+
+gulp.task('img', function (done) {
+    gulp.src('./app/img/**/*')
+        .pipe(gulp.dest('./www/img'))
+        .on('end', done);
+});
+
+gulp.task('fonts', function (done) {
+    gulp.src('./app/fonts/**/*')
+        .pipe(gulp.dest('./www/fonts'))
+        .on('end', done);
+});
+
+gulp.task('lib', function (done) {
+    gulp.src('./app/lib/**/*')
+        .pipe(gulp.dest('./www/lib'))
+        .on('end', done);
+});
+
+gulp.task('css', function (done) {
+    gulp.src('./app/css/**/*.css')
+        .pipe(gulp.dest('./www/css'))
+        .on('end', done);
+});
+
+gulp.task('useref', ['sass', 'css', 'templatecache'], function (done) {
+    gulp.src('./app/*.html')
         .pipe(useref())
-        .pipe(gulp.dest('./www/dist'))
+        .pipe(gulp.dest('./www'))
         .on('end', done);
 });
 
 gulp.task('ng_annotate', function (done) {
     gulp.src('./www/js/*.js')
         .pipe(ngAnnotate({single_quotes: true}))
-        .pipe(gulp.dest('./www/dist/dist_js/app'))
-        .on('end', done);
-});
-
-gulp.task('templatecache', function (done) {
-    gulp.src('./www/templates/**/*.html')
-        .pipe(templateCache({standalone: true}))
         .pipe(gulp.dest('./www/js'))
         .on('end', done);
 });
 
-gulp.task('sass', function (done) {
-    gulp.src('./scss/ionic.app.scss')
-        .pipe(sass())
-        .on('error', sass.logError)
-        .pipe(gulp.dest('./www/css/'))
-        .pipe(minifyCss({
-            keepSpecialComments: 0
-        }))
-        .pipe(rename({extname: '.min.css'}))
-        .pipe(gulp.dest('./www/css/'))
-        .on('end', done);
+gulp.task('build', function (done) {
+    runSequence('clean',
+        ['sass', 'templatecache', 'img', 'fonts', 'lib'],
+        'css',
+        'useref',
+        'ng_annotate',
+        done);
 });
+
+gulp.task('build:serve', function (done) {
+    runSequence('build', 'ionic:serve', done);
+});
+
+gulp.task('ionic:serve', shell.task([
+    'ionic serve'
+]));
 
 gulp.task('watch', function () {
     gulp.watch(paths.sass, ['sass']);
