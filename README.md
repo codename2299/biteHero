@@ -19,6 +19,14 @@ TODO: Setup needed applications in order to run ionic app into emulator
 ## Setup git repository
 
 1. Open Git Extensions
-2. 
+2. Clone Github Repository
+3. Repository to clone: https://github.com/codename2299/biteHero.git
+4. Destination: i.e.: C:\biteHero
+5. Branch: staging-development  
+
+## PUSH and PULL strategy
+1. Before you code, make a PULL first on `staging-development`
+2. Commit your changes and PUSH to `staging-development`
+
 
 
