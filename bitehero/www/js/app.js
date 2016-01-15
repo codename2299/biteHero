@@ -42,6 +42,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
+  .state('app.brush', {
+    url: '/brush',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/brush.html'
+      }
+    }
+  })
+
   .state('app.account', {
     url: '/account',
     views: {
