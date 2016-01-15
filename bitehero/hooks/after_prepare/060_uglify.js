@@ -20,8 +20,8 @@ var isRelease = true; // by default this hook is always enabled, see the line be
 //var isRelease = (cliCommand.indexOf('--release') > -1);
 var recursiveFolderSearch = true; // set this to false to manually indicate the folders to process
 var foldersToProcess = [ // add other www folders in here if needed (ex. js/controllers)
-    'dist_js',
-    'dist_css'
+    'js',
+    'css'
 ];
 
 if (!isRelease) {

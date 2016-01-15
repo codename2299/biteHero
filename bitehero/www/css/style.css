@@ -9728,3 +9728,9 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+body {
+  background: transparent; }
+
+jeremy {
+  color: #f9f9f9; }

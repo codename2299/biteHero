@@ -2,7 +2,7 @@
   "name": "bitehero",
   "app_id": "",
   "gulpStartupTasks": [
-    "build:ionic",
+    "default",
     "watch"
   ],
   "watchPatterns": [
