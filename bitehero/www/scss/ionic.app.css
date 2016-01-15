@@ -9702,8 +9702,9 @@ h2 {
   font-size: 3em;
   padding: .3em 0;
   border-radius: 10px;
-  width: 75% !important;
-  margin-bottom: 0.7em; }
+  min-width: 75% !important;
+  margin-bottom: 0.7em;
+  font-family: "Roboto Light"; }
 
 .button_later {
   color: #000 !important; }
@@ -9715,6 +9716,11 @@ h2 {
 .button_next {
   background-color: #6067B0;
   border-color: #6067B0;
+  color: #FFFFFF; }
+
+.button_find {
+  background-color: #F87B4F;
+  border-color: #F87B4F;
   color: #FFFFFF; }
 
 .button_overlay {
@@ -9729,6 +9735,14 @@ h2 {
   -webkit-transform: rotate(30deg);
   /* Chrome, Safari, Opera */
   transform: rotate(30deg); }
+
+.button_overlay_location {
+  display: block;
+  position: absolute;
+  top: -30px;
+  right: 15px;
+  color: #FCC25D;
+  font-size: 2.5em; }
 
 .list_count {
   counter-reset: li;

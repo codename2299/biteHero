@@ -78,6 +78,24 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
+  .state('app.consultmain', {
+    url: '/consultmain',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/consultmain.html'
+      }
+    }
+  })
+
+  .state('app.consultfind', {
+    url: '/consultfind',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/consultfind.html'
+      }
+    }
+  })
+
   .state('app.account', {
     url: '/account',
     views: {
