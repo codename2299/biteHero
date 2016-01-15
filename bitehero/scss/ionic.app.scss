@@ -14,8 +14,48 @@ $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
+ 
+/* purples and blues */	
+$cornflower:#6067B0;
+$periwinkle:#A0A7DD;
+$bermuda:#77DCD4;
+$blizzard-blue:	#BBE4F3;
+	
+/* oranges */	
+$coral:	#F87B4F;
+$tan-hide:	#FF9A50;
+$saffron:	#FCC25D;
+$chardonnay:	#FFC686;
+$marzipan:	#F7DDA2;
+	
+/* greens */	
+$emerald:	#42DD60;
+$gossip:	#BCF19F;
+$downy:	#53D3B8;
+$lima:	#63DD16;
+	
+/* greys, blacks, white */	
+$concrete:	#424242;
+$alto:	#DADADA;
+$wild-sand:	#F4F4F4;
+$white: #FFFFFF;
 
-$light: #000;
+/* reds */ 
+$crimson: #D81438;
+$ribbon: #FA3549;
+
+/* Buttons*/
+$button-stable-text:              #FFF !default;
+$item-default-active-bg:          #FFF !default;
+
+/* Default Font */
+$sans-serif-normal:		400;
+$sans-serif-light:		300;
+$sans-serif-thin:		100;
+$sans-serif-thick:		700;
+$sans-serif-black:		900;
+
+
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
@@ -27,13 +67,13 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 /*  CUSTOM STYLES */
 /* Header Classes */
 .bar_overview{
-	min-height: 44px !important;
+	min-height: 5.2em !important;
 	height:auto !important;
-	background:none !important;
-	padding: 1em;
+	background: $crimson !important;
+	padding: 1em 1em 0 1em;
 }
-.bar_buttons{
-	color:#000 !important;
+.bar_buttons .button{
+	color: $white !important;
 }
 
 .header-item{
@@ -46,22 +86,36 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 	width: 3em;
 	height: 3em; 
 	background:orange;
-	margin:2em auto 0 auto;
+	margin:0em auto 0 auto;
+	position:relative;
 }
 .bar-header{
 	background: transparent !important;
 	height:auto !important;
+	
+}
+.bar-header > div{
+	padding-top: 10px !important;
+}
+.bar{
+	border:0 !important;
+	
 }
 .bar .title{
 	margin:0 auto !important;
 	font-size:auto;
 	min-width:0 !important;
 }
+.header_stats_icons{
+	padding:2px 0 0 0 !important;
+	color:$white;
+}
 .progress_bar{
 	/* Reset the default appearance */
   -webkit-appearance: none;
    appearance: none;
-   margin:2em 0;
+   padding:0 !important;
+   margin:0 !important;
 }
 .progress_bar[value]::-webkit-progress-bar {
   	background-color: #DDD;
@@ -72,28 +126,178 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 }
 .progress_bar_hp[value]::-webkit-progress-value {
 	background-image:
-	-webkit-linear-gradient(left, #F87B4F, #F87B4F);
+	-webkit-linear-gradient(left, $emerald, $emerald);
 }
 .progress_bar_xp[value]::-webkit-progress-value {
 	background-image:
-	-webkit-linear-gradient(left, #FCC25D, #FCC25D);
+	-webkit-linear-gradient(left, $saffron, $saffron);
 }
+.avatar_lvl_sml{
+	color:$white;
+	font-size:12px;
+	margin-top:-3px;
+	padding:0;
+	font-weight:bold;
+}
+.header_stats{
+	margin:0;
+	padding:0 1.7em !important;
+	background-color:$ribbon ;
+}
+.buttons-left{
+	padding-left:1em;
+}
+.buttons-right{
+	padding-right:1em;
+}
+.bar .button.button-icon, .bar button.button-icon {
+    font-size: 12px !important;
+    margin-right:5px;
+}
+
+
 
 /* Menu */
 .title-left{
-	color:#FFF !important;
+	color:$white !important;
 }
 .item, .item-content{
 	border:0 !important;
-	background:#4c4c4c !important;
-	color:#FFF !important;
+	background:$concrete !important;
+	color:$white !important;
 }
 .sidemenu{
-	background:#4c4c4c !important;
+	background:$concrete !important;
 }
 
-/* Background Images */
-.box_dashboard{
+/* Avatar */
+.container_avatar_header .box_avatar_parts{background-size:100%;background-position:-8px -5px;}
+.container_avatar_header{
+	width:64px;
+	min-height:64px;
+	position:relative;
+	z-index:10;
+}
+.container_avatar_main{
+	margin:0 auto;
+	width:320px;
+	min-height:320px;
+	position:relative;
+}
+.box_avatar_parts{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
 	
 }
+.box_avatar_skin{background:url('../img/avatar/skin/skin-fair.png') no-repeat;background-position: 0 0 ;}
+.box_avatar_armor{background:url('../img/avatar/armor/armor-wizard.png') no-repeat;background-position: 0 0 ;}
+.box_avatar_hair{background:url('../img/avatar/hair/hair-black.png') no-repeat;background-position: 0 0 ;}
+.box_avatar_headgear{background:url('../img/avatar/headgear/helm-wizard.png') no-repeat;background-position: 0 0 ;}
+.box_avatar_weapon{background:url('../img/avatar/weapon/weapon-crossbow.png') no-repeat;background-position: 0 0 ;}
 
+
+/* Views */
+.box_view{
+	padding:1em;
+}
+h1{
+	color:$crimson;
+	font-size:40px;
+	font-family:"Roboto";
+	font-weight:$sans-serif-light;
+}
+h2{
+	color:$saffron;
+	font-size:20px;
+	font-family:"Roboto";
+	font-weight:bold;
+	line-height:1.5em;
+	text-align:center;
+	margin-bottom:1em;
+}
+.button_custom{
+	font-size:3em;
+	padding:.3em 0;
+	border-radius:10px;
+	min-width:75% !important;
+	margin-bottom:0.7em;
+	font-family:"Roboto Light";
+}
+.button_later{
+	color:#000 !important;
+}
+.button_text_left{
+	text-align:left !important;
+	padding-left:0.8em;
+}
+.button_next{
+	background-color:$cornflower;
+	border-color:$cornflower;
+	color:$white;
+}
+.button_find{
+	background-color:$coral;
+	border-color:$coral;
+	color:$white;
+}
+.button_overlay{
+	display:block;
+	position:absolute;
+	top:-55px;
+	right:15px;
+	color:$saffron;
+	font-size:2.5em;
+	-ms-transform: rotate(30deg); /* IE 9 */
+    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+    transform: rotate(30deg);
+}
+.button_overlay_location{
+	display:block;
+	position:absolute;
+	top:-30px;
+	right:15px;
+	color:$saffron;
+	font-size:2.5em;
+
+}
+.list_count{
+	counter-reset:li; /* Initiate a counter */
+    margin-left:0; /* Remove the default left margin */
+    padding-left:0; /* Remove the default left padding */
+}
+
+.list_count li {
+	position:relative; /* Create a positioning context */
+    margin:0 0 .5em 3em; /* Give each list item a left margin to make room for the numbers */
+    padding:4px 8px; /* Add some spacing around the content */
+    list-style:none; /* Disable the normal item numbering */
+    color:$crimson;
+    font-size:14px;
+    line-height:2em;
+    font-weight:bold;
+}
+
+.list_count li::before {
+  
+	content:counter(li); /* Use the counter as content */
+    counter-increment:li; /* Increment the counter by 1 */
+    /* Position and style the number */
+    position:absolute;
+    top:.80em;
+    left:-3em;
+
+    /* Some space between the number and the content in browsers that support
+       generated content but not positioning it (Camino 2 is one example) */
+    margin-right:8px;
+    padding:5px 15px;
+    color:#fff;
+    background:#666;
+    font-weight:bold;
+    text-align:center;
+    background-color:$crimson;
+    border-radius:100%;
+
+}

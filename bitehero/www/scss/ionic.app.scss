@@ -48,6 +48,13 @@ $ribbon: #FA3549;
 $button-stable-text:              #FFF !default;
 $item-default-active-bg:          #FFF !default;
 
+/* Default Font */
+$sans-serif-normal:		400;
+$sans-serif-light:		300;
+$sans-serif-thin:		100;
+$sans-serif-thick:		700;
+$sans-serif-black:		900;
+
 
 
 // The path for our ionicons font files, relative to the built CSS in www/css
@@ -185,11 +192,11 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 	left:0;
 	
 }
-.box_avatar_skin{background:url(/img/avatar/skin/temp.png) no-repeat;background-position: -10px 0 ;}
-.box_avatar_armor{background:url(/img/avatar/armor/temp.png) no-repeat;background-position: -10px 0 ;}
-.box_avatar_hair{background:url(/img/avatar/hair/temp.png) no-repeat;background-position: -10px 0 ;}
-.box_avatar_headgear{background:url(/img/avatar/headgear/temp.png) no-repeat;background-position: -10px 0 ;}
-.box_avatar_weapon{background:url(/img/avatar/weapon/temp.png) no-repeat;background-position: -10px 0 ;}
+.box_avatar_skin{background:url(/img/avatar/skin/skin-fair.png) no-repeat;background-position: 0 0 ;}
+.box_avatar_armor{background:url(/img/avatar/armor/armor-wizard.png) no-repeat;background-position: 0 0 ;}
+.box_avatar_hair{background:url(/img/avatar/hair/hair-black.png) no-repeat;background-position: 0 0 ;}
+.box_avatar_headgear{background:url(/img/avatar/headgear/helm-wizard.png) no-repeat;background-position: 0 0 ;}
+.box_avatar_weapon{background:url(/img/avatar/weapon/weapon-crossbow.png) no-repeat;background-position: 0 0 ;}
 
 
 /* Views */
@@ -199,13 +206,13 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 h1{
 	color:$crimson;
 	font-size:40px;
-	font-family:"Roboto Light";
-	font-weight:bold;
+	font-family:"Roboto";
+	font-weight:$sans-serif-light;
 }
 h2{
 	color:$saffron;
 	font-size:20px;
-	font-family:"Roboto Light";
+	font-family:"Roboto";
 	font-weight:bold;
 	line-height:1.5em;
 	text-align:center;

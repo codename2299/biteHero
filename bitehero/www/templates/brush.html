@@ -10,15 +10,13 @@
 			<h2>Experts recommend brushing for at least 2 minutes for healthier teeth and gums.</h2>
 
 			<div align="center">
-				<button class="button button-large button-balanced button_custom">
+				<button class="button button-large button-balanced button_custom" ng-click="showStop=true">
 				  Start
 				</button>
-
-				<button class="button button-large button_next button_custom ">
+				<button class="hide button button-large button_next button_custom " ng-show="showNext">
 				  Next <span class="ion-ios-arrow-thin-right"></span>
 				</button>
-
-				<button class="button button-large button-assertive button_custom">
+				<button class="hide button button-large button-assertive button_custom" ng-show="showStop">
 				  Stop
 				</button>
 			</div>
