@@ -220,3 +220,41 @@ h2{
 	border-color:$cornflower;
 	color:$white;
 }
+.list_count{
+	counter-reset:li; /* Initiate a counter */
+    margin-left:0; /* Remove the default left margin */
+    padding-left:0; /* Remove the default left padding */
+}
+
+.list_count li {
+	position:relative; /* Create a positioning context */
+    margin:0 0 .5em 3em; /* Give each list item a left margin to make room for the numbers */
+    padding:4px 8px; /* Add some spacing around the content */
+    list-style:none; /* Disable the normal item numbering */
+    color:$crimson;
+    font-size:14px;
+    line-height:2em;
+    font-weight:bold;
+}
+
+.list_count li::before {
+  
+	content:counter(li); /* Use the counter as content */
+    counter-increment:li; /* Increment the counter by 1 */
+    /* Position and style the number */
+    position:absolute;
+    top:.80em;
+    left:-3em;
+
+    /* Some space between the number and the content in browsers that support
+       generated content but not positioning it (Camino 2 is one example) */
+    margin-right:8px;
+    padding:5px 15px;
+    color:#fff;
+    background:#666;
+    font-weight:bold;
+    text-align:center;
+    background-color:$crimson;
+    border-radius:100%;
+
+}

@@ -51,6 +51,33 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
+  .state('app.floss', {
+    url: '/floss',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/floss.html'
+      }
+    }
+  })
+
+  .state('app.rinse', {
+    url: '/rinse',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/rinse.html'
+      }
+    }
+  })
+
+  .state('app.diary', {
+    url: '/diary',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/diary.html'
+      }
+    }
+  })
+
   .state('app.account', {
     url: '/account',
     views: {
