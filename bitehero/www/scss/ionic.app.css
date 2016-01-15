@@ -9623,6 +9623,14 @@ a.button {
   font-size: 12px !important;
   margin-right: 5px; }
 
+.icon_gold {
+  background: url("/img/icon-coin-gold.png") no-repeat center right !important;
+  padding-right: 30px !important; }
+
+.icon_gem {
+  background: url("/img/icon-gems.png") no-repeat center right !important;
+  padding-right: 40px !important; }
+
 /* Menu */
 .title-left {
   color: #FFFFFF !important; }
@@ -9785,5 +9793,8 @@ h2 {
   text-align: center;
   background-color: #D81438;
   border-radius: 100%; }
+
+.page_img {
+  position: relative; }
 
 /*# sourceMappingURL=ionic.app.css.map */

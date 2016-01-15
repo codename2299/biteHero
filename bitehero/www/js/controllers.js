@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $state) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -39,6 +39,44 @@ angular.module('starter.controllers', [])
       $scope.closeLogin();
     }, 1000);
   };
+
+  //Links
+  $scope.dashboard = function(){
+    $state.go("app.dashboard");
+  }
+
+  $scope.brush = function(){
+    $state.go("app.brushstarted");
+  }
+  $scope.brushstop = function(){
+    $state.go("app.brushdone");
+  }
+  $scope.brush = function(){
+    $state.go("app.brushstarted");
+  }
+  $scope.floss = function(){
+    $state.go("app.floss");
+  }
+  $scope.rinse = function(){
+    $state.go("app.rinse");
+  }
+
+  $scope.diary = function(){
+    $state.go("app.diary");
+  }
+
+  $scope.finddentist = function(){
+    $state.go("app.consultfind");
+  }
+
+  $scope.adddentist = function(){
+    $state.go("app.consultfindadded");
+  }
+
+  $scope.shopgem = function(){
+    $state.go("app.shopgem");
+  }
+  
 })
 
 .controller('PlaylistsCtrl', function($scope) {

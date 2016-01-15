@@ -22,6 +22,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   });
 })
 
+
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
@@ -50,6 +51,26 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
+
+  .state('app.brushstarted', {
+    url: '/brushstarted',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/brushstarted.html'
+      }
+    }
+  })
+
+
+.state('app.brushdone', {
+    url: '/brushdone',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/brushdone.html'
+      }
+    }
+  })
+
 
   .state('app.floss', {
     url: '/floss',
@@ -95,6 +116,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
+  .state('app.consultfindadded', {
+    url: '/consultfindadded',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/consultfindadded.html'
+      }
+    }
+  })
 
   .state('app.account', {
     url: '/account',
@@ -123,11 +152,11 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
-  .state('app.mydentists', {
-    url: '/mydentists',
+  .state('app.shopgem', {
+    url: '/shopgem',
     views: {
       'menuContent': {
-        templateUrl: 'templates/mydentists.html',
+        templateUrl: 'templates/shopgem.html',
       }
     }
   })
@@ -143,3 +172,4 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/dashboard');
 });
+
