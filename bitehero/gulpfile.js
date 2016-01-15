@@ -17,114 +17,128 @@ var paths = {
     templatecache: ['./app/templates/**/*.html'],
     ng_annotate: ['./app/js/*.js'],
     useref: ['./app/*.html'],
-    del: ['./www/**/*']
+    del: ['./www/**/*', './app/dist/**/*']
 };
 
 gulp.task('clean', function () {
     return del(paths.del);
 });
 
-/* Every changes on the files inside scss folder, it will compile
- * the *.scss files into css and copy them to www/css directory */
+/* CONVERT SASS TO CSS */
 gulp.task('sass', function (done) {
     gulp.src('./scss/**/*.scss')
         .pipe(sass())
         .on('error', sass.logError)
-        .pipe(gulp.dest('./www/css'))
-        .on('end', function () {
-            gulp.src('./app/css/**/*.scss')
-                .pipe(sass())
-                .on('error', sass.logError)
-                .pipe(gulp.dest('./app/css'))
-                .on('end', done);
-        });
+        .pipe(gulp.dest('./app/dist/css'))
+        .on('end', done);
 });
 
-/* Every changes on the templates folder, all html files inside it
- * will be compiled into templates.js file. It must be copied on app and www folders */
+/* CONVERT APP SASS TO CSS */
+gulp.task('app-sass', function (done) {
+    gulp.src('./app/css/**/*.scss')
+        .pipe(sass())
+        .on('error', sass.logError)
+        .pipe(gulp.dest('./app/dist/css'))
+        .on('end', done);
+});
+
+/* CONVERT TEMPLATES TO TEMPLATECACHE AND PUT TO JS FOLDER */
 gulp.task('templatecache', function (done) {
     gulp.src('./app/templates/**/*.html')
         .pipe(templateCache({standalone: true}))
-        .pipe(gulp.dest('./app/js'))
-        .pipe(gulp.dest('./www/js'))
+        .pipe(gulp.dest('./app/dist/js'))
         .on('end', done);
 });
 
-/* Every changes on the img folder will reflect to www folder */
-gulp.task('img', function (done) {
-    gulp.src('./app/img/**/*')
-        .pipe(gulp.dest('./www/img'))
+/* COPY FONTS TO DIST FOLDER */
+gulp.task('app-js-copy', function (done) {
+    gulp.src('./app/js/**/*')
+        .pipe(gulp.dest('./app/dist/js'))
         .on('end', done);
 });
 
-/* Every changes on the fonts folder will reflect to www folder */
-gulp.task('fonts', function (done) {
+/* COPY FONTS TO DIST FOLDER */
+gulp.task('app-fonts-copy', function (done) {
     gulp.src('./app/fonts/**/*')
-        .pipe(gulp.dest('./www/fonts'))
+        .pipe(gulp.dest('./app/dist/fonts'))
         .on('end', done);
 });
 
-/* All libraries will just be copied to www folder */
-gulp.task('lib', function (done) {
+/* COPY IMAGES TO DIST FOLDER */
+gulp.task('app-img-copy', function (done) {
+    gulp.src('./app/img/**/*')
+        .pipe(gulp.dest('./app/dist/img'))
+        .on('end', done);
+});
+
+/* COPY LIB FORLDER TO DIST */
+gulp.task('app-lib-copy', function (done) {
     gulp.src('./app/lib/**/*')
-        .pipe(gulp.dest('./www/lib'))
+        .pipe(gulp.dest('./app/dist/lib'))
         .on('end', done);
 });
 
-/* Copy html files from the root of app folder */
-gulp.task('html-copy', function (done) {
+/* COPY ROOT HTML FILES TO DIST FOLDER FOR USEREF LATER */
+gulp.task('app-html-copy', function (done) {
     gulp.src('./app/*.html')
-        .pipe(gulp.dest('./www'))
+        .pipe(gulp.dest('./app/dist'))
         .on('end', done);
 });
 
-/* Copy css files from the app folder */
-gulp.task('css-copy', function (done) {
-    gulp.src('./app/css/**/*.css')
-        .pipe(gulp.dest('./www/css'))
-        .on('end', done);
-});
-
-/* Copy js files from the app folder */
-gulp.task('js-copy', function (done) {
+/* ANNOTATE JS FILES FOR USEREF */
+gulp.task('ng_annotate', function (done) {
     gulp.src('./app/js/**/*.js')
-        .pipe(gulp.dest('./www/js'))
+        .pipe(ngAnnotate({single_quotes: true}))
+        .pipe(gulp.dest('./app/dist/js'))
         .on('end', done);
 });
 
-/* User Ref looks at the root html files, i.e.: index.html.
- * It check the build tag and combine group files.
- * It should be copied on the www folder. */
+/* IT IS TIME TO TRANSFER FILES TO WWW */
 gulp.task('useref', function (done) {
-    gulp.src('./www/*.html')
+    gulp.src('./app/dist/*.html')
         .pipe(useref())
         .pipe(gulp.dest('./www'))
         .on('end', done);
 });
 
-/* This ensure that all dependency injection code will not cause error
- *  when minified. On every changes must be update the www folder. */
-gulp.task('ng_annotate', function (done) {
-    gulp.src('./www/js/**/*.js')
-        .pipe(ngAnnotate({single_quotes: true}))
+/* COPY FILES */
+gulp.task('www-js-copy', function (done) {
+    gulp.src('./app/dist/js/app.js')
         .pipe(gulp.dest('./www/js'))
         .on('end', done);
 });
 
-/* Copy js files from the app folder */
-gulp.task('final-clean', function (done) {
-    del(['./www/js/**/*.js', '!./www/js/app.js', './www/css/**/*.css', '!./www/css/style.css']);
-    done();
+gulp.task('www-css-copy', function (done) {
+    gulp.src('./app/dist/css/style.css')
+        .pipe(gulp.dest('./www/css'))
+        .on('end', done);
+});
+
+gulp.task('www-img-copy', function (done) {
+    gulp.src('./app/dist/img/**/*')
+        .pipe(gulp.dest('./www/img'))
+        .on('end', done);
+});
+
+gulp.task('www-lib-copy', function (done) {
+    gulp.src('./app/dist/lib/**/*')
+        .pipe(gulp.dest('./www/lib'))
+        .on('end', done);
+});
+
+gulp.task('www-fonts-copy', function (done) {
+    gulp.src('./app/dist/fonts/**/*')
+        .pipe(gulp.dest('./www/fonts'))
+        .on('end', done);
 });
 
 /* Default task. To use, just run: gulp */
 gulp.task('default', function (done) {
     runSequence('clean',
-        ['sass', 'templatecache', 'img', 'fonts', 'lib'],
-        ['html-copy', 'css-copy', 'js-copy'],
-        'useref',
+        ['sass', 'app-sass', 'templatecache', 'app-js-copy', 'app-fonts-copy', 'app-img-copy', 'app-lib-copy', 'app-html-copy'],
+        ['www-js-copy', 'www-css-copy', 'www-img-copy', 'www-lib-copy', 'www-fonts-copy'],
         'ng_annotate',
-        'final-clean',
+        'useref',
         done);
 });
 
