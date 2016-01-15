@@ -99,6 +99,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
+  .state('app.gallery', {
+    url: '/gallery',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/gallery.html'
+      }
+    }
+  })
+
   .state('app.consultmain', {
     url: '/consultmain',
     views: {
@@ -125,29 +134,13 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
-  .state('app.account', {
-    url: '/account',
+  
+
+  .state('app.conquests', {
+    url: '/conquests',
     views: {
       'menuContent': {
-        templateUrl: 'templates/account.html'
-      }
-    }
-  })
-
-  .state('app.activity', {
-      url: '/activity',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/activity.html'
-        }
-      }
-    })
-
-  .state('app.achievements', {
-    url: '/achievements',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/achievements.html',
+        templateUrl: 'templates/conquests.html',
       }
     }
   })

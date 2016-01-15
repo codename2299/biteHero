@@ -9,27 +9,32 @@
 			<div class="box_avatar_weapon box_avatar_parts"></div>
         </div>
 
-		<div class="row">
-			<div class="col col-35">
-				<img src="../img/img-clean.PNG" class="box_avatar_skin">
+		<div id="dashboard_menu">
+			<div class="row">
+				<div class="col col-35">
+					<img src="../img/img-clean.PNG" class="box_avatar_skin" ng-click="brush()">
+				</div>
+
+				<div class="col col-35 col-offset-30" align="right">
+					<img src="../img/img-consult.png" ng-click="findmain()">
+				</div>
 			</div>
 
-			<div class="col col-35 col-offset-30" align="right">
-				<img src="../img/img-consult.png">
+			<div class="row">
+				<div class="col col-45" align="right">
+					<img src="../img/img-gallery.png" ng-click="gallery()">
+				</div>
+
+				<div class="col col-45 col-offset-10" align="left">
+					<img src="../img/img-conquests.png"ng-click="conquests()">
+				</div>
+
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="col col-45" align="right">
-				<img src="../img/img-gallery.png">
-			</div>
-
-			<div class="col col-45 col-offset-10" align="left">
-				<img src="../img/img-conquests.png">
-			</div>
-
+		<div id="dashboard_shop">
+			<img src="../img/page-shop-avatar.png" width="100%">
 		</div>
-
 
 
     </ion-content>

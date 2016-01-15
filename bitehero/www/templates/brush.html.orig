@@ -1,0 +1,31 @@
+<ion-view >
+    <ion-content>
+    	<div class="box_view">
+			<h1 align="center">Brush!</h1>
+
+			<div align="center">
+				<img src="../img/img-clean.PNG" width="80%" class="img-clean">
+			</div>
+
+			<h2>Experts recommend brushing for at least 2 minutes for healthier teeth and gums.</h2>
+
+			<div align="center">
+<<<<<<< HEAD
+				<button class="button button-large button-balanced button_custom" ng-click="brush()">
+				  Start
+				</button>
+=======
+				<button class="button button-large button-balanced button_custom" ng-click="showStop=true">
+				  Start
+				</button>
+				<button class="hide button button-large button_next button_custom " ng-show="showNext">
+				  Next <span class="ion-ios-arrow-thin-right"></span>
+				</button>
+				<button class="hide button button-large button-assertive button_custom" ng-show="showStop">
+				  Stop
+				</button>
+>>>>>>> a70416bc437b03fb63926d39ed0d3f820d935f3f
+			</div>
+		</div>
+    </ion-content>
+</ion-view>

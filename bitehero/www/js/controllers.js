@@ -46,12 +46,12 @@ angular.module('starter.controllers', [])
   }
 
   $scope.brush = function(){
-    $state.go("app.brushstarted");
+    $state.go("app.brush");
   }
   $scope.brushstop = function(){
     $state.go("app.brushdone");
   }
-  $scope.brush = function(){
+  $scope.brushstart = function(){
     $state.go("app.brushstarted");
   }
   $scope.floss = function(){
@@ -65,6 +65,14 @@ angular.module('starter.controllers', [])
     $state.go("app.diary");
   }
 
+  $scope.gallery = function(){
+    $state.go("app.gallery");
+  }
+
+  $scope.findmain = function(){
+    $state.go("app.consultmain");
+  }
+
   $scope.finddentist = function(){
     $state.go("app.consultfind");
   }
@@ -75,6 +83,10 @@ angular.module('starter.controllers', [])
 
   $scope.shopgem = function(){
     $state.go("app.shopgem");
+  }
+
+  $scope.conquests = function(){
+    $state.go("app.conquests");
   }
   
 })

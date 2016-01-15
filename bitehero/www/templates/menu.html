@@ -8,8 +8,8 @@
         </ion-nav-back-button>
 
 
-        <ion-nav-title side="center" >
-            <div class="bar_avatar">
+        <ion-nav-title side="center" ng-click="dashboard()">
+            <div class="bar_avatar ">
               <div class="container_avatar_header">
                 <div class="box_avatar_skin box_avatar_parts"></div>
                 <div class="box_avatar_armor box_avatar_parts"></div>
@@ -82,32 +82,31 @@
 
   <ion-side-menu side="left" class="sidemenu">
     <ion-header-bar class="bar-stable bar_overview">
-      <h1 class="title">Menu</h1>
+      <h1 class="title" align="left">Hi,</h1>
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close href="#/app/dashboard">
-          Dashboard
+        <ion-item menu-close>
+         Account
         </ion-item>
-        <ion-item menu-close href="#/app/brush">
-          Clean 
+
+        <ion-item menu-close href="#/app/dashboard">
+          My Dashboard
+        </ion-item>
+        <ion-item menu-close href="#/app/consultmain">
+          My Dentists
         </ion-item>
         
-        <ion-item menu-close href="#/app/diary">
-          Smile Diary
+        <ion-item menu-close>
+          Activity Log
         </ion-item>
 
-        <ion-item menu-close href="#/app/consultmain">
-          Consult
+        <ion-item menu-close href="#/app/conquests">
+          Achievements
         </ion-item>
-
-        <ion-item menu-close href="#/app/shop">
-          Consult
-        </ion-item>
-
 
         <ion-item menu-close href="#/app/signout">
-          Sign Out
+          Log Out
         </ion-item>
 
       </ion-list>
