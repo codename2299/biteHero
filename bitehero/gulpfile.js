@@ -128,6 +128,38 @@ gulp.task('default', function (done) {
         done);
 });
 
+/* Short-cut commands for android build and serve */
+gulp.task('ia:build', function (done) {
+    runSequence('default',
+        'ionic:android',
+        done);
+});
+
+gulp.task('ia:serve', function (done) {
+    runSequence('default',
+        'ionic:serve',
+        done);
+});
+
+gulp.task('ia:run', function (done) {
+    runSequence('default',
+        'ionic:run',
+        done);
+});
+
+/* Shell commands */
+gulp.task('ionic:android', shell.task([
+    'ionic build android'
+]));
+
+gulp.task('ionic:serve', shell.task([
+    'ionic serve'
+]));
+
+gulp.task('ionic:run', shell.task([
+    'ionic run android'
+]));
+
 gulp.task('watch', function () {
     gulp.watch(paths.sass, ['sass']);
     gulp.watch(paths.templatecache, ['templatecache']);
