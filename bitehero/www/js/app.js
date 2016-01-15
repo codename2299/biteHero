@@ -108,6 +108,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
+  .state('app.smilemodal', {
+    url: '/smilemodal',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/smilemodal.html',
+      }
+    }
+  })
+
   .state('app.consultmain', {
     url: '/consultmain',
     views: {
@@ -150,6 +159,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     views: {
       'menuContent': {
         templateUrl: 'templates/shopgem.html',
+      }
+    }
+  })
+
+  .state('app.shopavatar', {
+    url: '/shopavatar',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/shopavatar.html',
       }
     }
   })

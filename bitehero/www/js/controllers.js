@@ -69,6 +69,10 @@ angular.module('starter.controllers', [])
     $state.go("app.gallery");
   }
 
+  $scope.smilemodal = function(){
+    $state.go("app.smilemodal");
+  }
+
   $scope.findmain = function(){
     $state.go("app.consultmain");
   }
@@ -85,6 +89,10 @@ angular.module('starter.controllers', [])
     $state.go("app.shopgem");
   }
 
+  $scope.shopavatar = function(){
+    $state.go("app.shopavatar");
+  }
+  
   $scope.conquests = function(){
     $state.go("app.conquests");
   }
